@@ -1,4 +1,4 @@
-package 数组;
+package company.数组;
 
 /**
  * @author xiu
