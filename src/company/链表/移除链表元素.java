@@ -2,12 +2,20 @@ package company.链表;
 
 import company.ListNode;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  * @author xiu
  * @create 2023-07-09 16:52
  */
 public class 移除链表元素 {
+    volatile  int a= 1;
     public static void main(String[] args) {
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(now.getYear());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy  MM  dd HH:mm:ss");
+        System.out.println(formatter.format(now));
         ListNode listNode = new ListNode(1);
         ListNode listNode1 = new ListNode(2);
         ListNode listNode2 = new ListNode(3);
