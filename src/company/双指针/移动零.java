@@ -9,8 +9,7 @@ import java.util.Arrays;
 public class 移动零 {
     public static void main(String[] args) {
         int[] nums = {0,0,0,0,3,2,0,2,3};
-        System.out.println(new 移动零().moveZeroes(nums));
-        System.out.println(Arrays.toString(nums));
+//        System.out.println(Arrays.toString(nums));
     }
     public int moveZeroes(int[] nums) {
         int slow=0;
