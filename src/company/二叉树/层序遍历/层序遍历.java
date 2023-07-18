@@ -1,9 +1,8 @@
 package company.二叉树.层序遍历;
 
-import company.TreeNode;
+import company.公共类.TreeNode;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 

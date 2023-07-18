@@ -1,6 +1,6 @@
 package company.双指针;
 
-import company.ListNode;
+import company.公共类.ListNode;
 
 /**
  * @author xiu

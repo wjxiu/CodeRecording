@@ -1,4 +1,4 @@
-package company;
+package company.公共类;
 
 /**
  * @author xiu

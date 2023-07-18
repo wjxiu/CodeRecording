@@ -1,8 +1,7 @@
-package company;
+package company.公共类;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 /**
  * @author xiu

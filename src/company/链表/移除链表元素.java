@@ -1,6 +1,6 @@
 package company.链表;
 
-import company.ListNode;
+import company.公共类.ListNode;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

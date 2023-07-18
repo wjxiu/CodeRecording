@@ -1,6 +1,6 @@
 package company.二叉树;
 
-import company.TreeNode;
+import company.公共类.TreeNode;
 
 import java.util.ArrayList;
 
