@@ -1,7 +1,6 @@
-package company.贪心;
+package company.贪心.区间问题;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 /**
  * @author xiu
