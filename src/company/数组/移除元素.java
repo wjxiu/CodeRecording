@@ -6,7 +6,7 @@ package company.数组;
  */
 public class 移除元素 {
     public static void main(String[] args) {
-        System.out.println(new 移除元素().removeElement(new int[]{0, 1, 2, 3, 4, 5, 2, 4}, 2));
+        System.out.println(new 移除元素().removeElement1(new int[]{0, 1, 2, 3, 4, 5, 2, 4}, 2));
     }
 //    快慢指针
     public int removeElement(int[] nums, int val) {
@@ -15,6 +15,21 @@ public class 移除元素 {
             if (nums[fast]!=val){
                 nums[slow]=nums[fast];
                 slow++;
+            }
+        }
+        return slow;
+    }
+
+    public int removeElement1(int[] nums, int val) {
+        int slow=0;
+        int fast=0;
+        while(fast<nums.length){
+            if (nums[fast]!=val){
+                nums[slow]=nums[fast];
+                slow++;
+                fast++;
+            }else{
+                fast++;
             }
         }
         return slow;

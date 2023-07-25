@@ -12,20 +12,8 @@ import java.time.format.DateTimeFormatter;
 public class 移除链表元素 {
     volatile  int a= 1;
     public static void main(String[] args) {
-        LocalDateTime now = LocalDateTime.now();
-        System.out.println(now.getYear());
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy  MM  dd HH:mm:ss");
-        System.out.println(formatter.format(now));
-        ListNode listNode = new ListNode(1);
-        ListNode listNode1 = new ListNode(2);
-        ListNode listNode2 = new ListNode(3);
-        ListNode listNode3 = new ListNode(4);
-        ListNode listNode4 = new ListNode(3);
-        listNode.next = listNode1;
-        listNode1.next = listNode2;
-        listNode2.next = listNode3;
-        listNode3.next = listNode4;
-        new 移除链表元素().removeElements(listNode, 3);
+        ListNode listNode = ListNode.geneList(1,2,3,3,3,4);
+        System.out.println(new 移除链表元素().removeElements1(listNode, 3));
     }
 //    添加虚拟头节点
     public ListNode removeElements(ListNode head, int val) {
@@ -41,5 +29,24 @@ public class 移除链表元素 {
         }
         return dummy.next;
     }
+    public ListNode removeElements1(ListNode head, int val) {
+        ListNode dummy = new ListNode(-1);
+        dummy.next=head;
+        ListNode pre=dummy;
+        ListNode temp=dummy;
+        while (temp!=null){
+            if (temp.val==val){
+                pre.next=temp.next;
+            }else{
+                pre=temp;
+            }
+            temp=temp.next;
+
+        }
+        return dummy.next;
+    }
+
+
+
 
 }
