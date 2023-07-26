@@ -1,5 +1,7 @@
 package company.链表;
 
+import company.公共类.ListNode;
+
 /**
  * @author xiu
  * @create 2023-07-10 11:11

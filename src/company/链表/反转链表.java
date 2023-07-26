@@ -1,10 +1,16 @@
 package company.链表;
 
+import company.公共类.ListNode;
+
 /**
  * @author xiu
  * @create 2023-07-10 10:52
  */
 public class 反转链表 {
+    public static void main(String[] args) {
+        ListNode listNode = ListNode.geneList(1,2,3);
+        System.out.println(new 反转链表().reverseList1(listNode));
+    }
     public ListNode reverseList(ListNode head) {
 //        双指针
         ListNode temp=head;
@@ -16,6 +22,17 @@ public class 反转链表 {
             pre=cur;
             cur=temp;
 
+        }
+        return pre;
+    }
+    public ListNode reverseList1(ListNode head){
+        ListNode pre=null;
+        ListNode cur=head;
+        while (cur!=null){
+            ListNode next = cur.next;
+            cur.next=pre;
+            pre=cur;
+            cur=next;
         }
         return pre;
     }

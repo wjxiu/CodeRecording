@@ -1,6 +1,8 @@
 package company.链表;
 
 
+import company.公共类.ListNode;
+
 /**
  * @author xiu
  * @create 2023-07-10 10:08
@@ -108,22 +110,5 @@ public class MyLinkedList {
             listNode=listNode.next;
         }
         return sb.toString().equals("") ?"":sb.substring(0,sb.length()-2);
-    }
-}
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode(){}
-    ListNode(int val) {
-        this.val=val;
-    }
-    public String toString() {
-        ListNode listNode = this;
-        StringBuilder sb = new StringBuilder();
-        while (listNode!=null){
-            sb.append(listNode.val).append("->");
-            listNode=listNode.next;
-        }
-        return sb.substring(0,sb.length()-2);
     }
 }
