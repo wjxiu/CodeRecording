@@ -11,21 +11,9 @@ import java.util.Arrays;
  */
 public class 移除元素 {
     public static void main(String[] args) {
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(1);
-        arr.add(2);
-        arr.add(3);
-        arr.add(4);
-        arr.add(5);
-        arr.forEach(i->{
-            if (i==4){
-                return;
-            }
-                System.out.println(i);
-
-        });
-//        int[] nums = {3,2,2,3};
+        int[] nums = {3,2,2};
 //        System.out.println(new 移除元素().removeElement(nums, 3));
+        System.out.println(new 移除元素().removeElement1(nums, 3));
 //        System.out.println(Arrays.toString(nums));
     }
     public int removeElement(int[] nums, int val) {
@@ -37,6 +25,22 @@ public class 移除元素 {
             if (nums[fast]!=val){
                 nums[slow]=nums[fast];
                 slow++;
+            }
+        }
+        return slow;
+    }
+
+    public int removeElement1(int[] nums, int val){
+        int fast=0;
+        int slow=0;
+        while (fast<nums.length){
+//            跳过需要删除的元素
+            if (nums[fast]==val){
+                fast++;
+            }else{
+                nums[slow]=nums[fast];
+                slow++;
+                fast++;
             }
         }
         return slow;

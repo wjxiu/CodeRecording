@@ -8,7 +8,8 @@ import java.util.HashSet;
  */
 public class 快乐数 {
     public static void main(String[] args) {
-        System.out.println(new 快乐数().isHappy(19));
+        System.out.println(new 快乐数().isHappy1(19));
+        System.out.println(new 快乐数().getnum1(19));
     }
 
     public boolean isHappy(int n) {
@@ -26,6 +27,26 @@ public class 快乐数 {
         while (n>0){
              temp= n%10;
              sum+=temp*temp;
+            n/=10;
+        }
+        return sum;
+    }
+
+    public boolean isHappy1(int n){
+        HashSet<Integer> set = new HashSet<>();
+        while (true){
+            n = getnum1(n);
+            if (n==1) return true;
+            if (!set.add(n)) {
+                return false;
+            }
+        }
+    }
+   static int getnum1(int n){
+        int sum=0;
+        while (n!=0){
+           int temp= n%10;
+           sum+=temp*temp;
             n/=10;
         }
         return sum;
