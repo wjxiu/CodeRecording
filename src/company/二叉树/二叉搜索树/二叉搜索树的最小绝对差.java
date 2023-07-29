@@ -1,4 +1,4 @@
-package company.二叉树;
+package company.二叉树.二叉搜索树;
 
 import company.公共类.TreeNode;
 

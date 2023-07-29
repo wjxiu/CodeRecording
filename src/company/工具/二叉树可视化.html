@@ -32,6 +32,8 @@
 <div>
     <textarea style="width: 400px" id="raw_node_list" type="text"></textarea>
     <button id="raw_node_list_btn">submit</button>
+    <button id="reset_btn">reset</button>
+    <button id="clear_btn">clear</button>
 </div>
 <div id="canvas_container" style="position: relative">
     <canvas id="canvas" width="1200px" height="600px"></canvas>
@@ -39,6 +41,11 @@
     <div class="editbox" id="edit_box" style="display: none">
         <div style="text-align: right; cursor: pointer" id="close_editbox">[x]</div>
         <div>Node: <span id="node_name_span">node</span></div>
+<!--        <div>-->
+<!--            <label for="new_left_node">change Value: </label>-->
+<!--            <input id="new_val" type="number" />-->
+<!--            <button id="add_new_val_btn">OK</button>-->
+<!--        </div>-->
         <div id="nlnc">
             <label for="new_left_node">Add LeftChild: </label>
             <input id="new_left_node" type="number" />
@@ -88,10 +95,34 @@
             currTree = NewTree(nodeList)
             DrawTree(ctx, treeGraphConfig, currTree)
         }
+        document.getElementById("reset_btn").onclick = function () {
+            updateInputVal([5, 4, 7, 3, null, 2, null, -1, null, 9])
+        }
+        document.getElementById("clear_btn").onclick = function () {
+            updateInputVal([ ])
+        }
         document.getElementById("close_editbox").onclick = function () {
             $editBox.style.display = "none"
             selectedNodeID = null
         }
+        // document.getElementById("add_new_val_btn").onclick=function () {
+        //     var node = currTree.nodeMap[selectedNodeID]
+        //     var newval= document.getElementById("new_val").value;
+        //     node.val=newval
+        //     var val = $rawNodeList.value
+        //     if (!val || val.length < 2 || val[0] !== "[" || val[val.length - 1] !== "]") {
+        //         alert("input not right")
+        //         return
+        //     }
+        //     var nodeList = val.slice(1, val.length - 1).split(",")
+        //     for (var i = 0; i < nodeList.length; i++) {
+        //         if (nodeList[i].trim() === "null") {
+        //             nodeList[i] = null
+        //         }
+        //     }
+        //     currTree = NewTree(nodeList)
+        //     DrawTree(ctx, treeGraphConfig, currTree)
+        // }
         document.getElementById("add_left_node_btn").onclick = function () {
             var node = currTree.nodeMap[selectedNodeID]
             var val = document.getElementById("new_left_node").value

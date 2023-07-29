@@ -9,7 +9,8 @@ import java.util.*;
  */
 public class 滑动窗口最大值 {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new 滑动窗口最大值().maxSlidingWindow(new int[]{-7,-8,7,5,7,1,6,0}, 4)));
+        System.out.println(Arrays.toString(new 滑动窗口最大值().maxSlidingWindow(new int[]{-7,-8,7,5,7,1,6,0}, 3)));
+        System.out.println(Arrays.toString(new 滑动窗口最大值().maxSlidingWindow1(new int[]{-7,-8,7,5,7,1,6,0}, 3)));
     }
     //    自定义单调队列
     public int[] maxSlidingWindow(int[] nums, int k) {
@@ -28,22 +29,55 @@ public class 滑动窗口最大值 {
         }
         return res.stream().mapToInt(Integer::intValue).toArray();
     }
-}
-class MyQueue {
+    class MyQueue {
 
-    Deque<Integer> deque = new LinkedList<>();
-    void poll(int val) {
-        if (!deque.isEmpty()&&val==deque.peek()){
-            deque.pop();
+        Deque<Integer> deque = new LinkedList<>();
+        void poll(int val) {
+            if (!deque.isEmpty()&&val==deque.peek()){
+                deque.pop();
+            }
+        }
+        void add(int val){
+            while (!deque.isEmpty()&&val>deque.peekLast()){
+                deque.pollLast();
+            }
+            deque.addLast(val);
+        }
+        int peek(){
+            return deque.getFirst();
         }
     }
-    void add(int val){
-        while (!deque.isEmpty()&&val>deque.peekLast()){
-            deque.pollLast();
+
+//    自定义单调队列
+    public int[] maxSlidingWindow1(int[] nums, int k){
+        ArrayList<Integer> res = new ArrayList<>();
+        MyQueue1 queue = new MyQueue1();
+        for (int i = 0; i < k; i++) {
+            queue.add(nums[i]);
         }
-        deque.addLast(val);
+        res.add(queue.peek());
+        for (int i = k; i < nums.length; i++) {
+            queue.remove(nums[i-k]);
+            queue.add(nums[i]);
+            res.add( queue.peek());
+        }
+        return res.stream().mapToInt(Integer::intValue).toArray();
     }
-    int peek(){
-        return deque.getFirst();
+    class MyQueue1 {
+       Deque<Integer> deque= new LinkedList<Integer>();
+       public void add(int val){
+           while (!deque.isEmpty()&&val>deque.getLast()){
+               deque.removeLast();
+           }
+           deque.addLast(val);
+       }
+       public void remove(int val){
+           if (deque.getFirst()==val) {
+               deque.removeFirst();
+           }
+       }
+       public int peek(){
+         return   deque.getFirst();
+       }
     }
 }
