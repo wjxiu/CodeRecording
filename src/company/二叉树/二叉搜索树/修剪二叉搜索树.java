@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class 修剪二叉搜索树 {
     public static void main(String[] args) {
         TreeNode treeNode = TreeNode.geneTree(new Integer[]{3, 0, 4, null, 2, null, null, 1});
-        TreeNode treeNode1 = new 修剪二叉搜索树().trimBST(treeNode, 1, 3);
+        TreeNode treeNode1 = new 修剪二叉搜索树().trimBST1(treeNode, 1, 3);
         System.out.println(Arrays.toString(TreeNode.parse(treeNode1)));
     }
 
@@ -28,4 +28,12 @@ public class 修剪二叉搜索树 {
         root.right=trimBST(root.right,low,high);
         return root;
     }
+
+    public TreeNode trimBST1(TreeNode root, int low, int high){
+        if (root.val<low||root.val>high) return null;
+        if (root.left!=null) root.left= trimBST(root.left, low, high);
+        if (root.right!=null) root.right=trimBST(root.right, low, high);
+        return root;
+    }
+
 }

@@ -8,7 +8,8 @@ import company.公共类.TreeNode;
  */
 public class 二叉树的最近公共祖先 {
     public static void main(String[] args) {
-        new 二叉树的最近公共祖先().lowestCommonAncestor(TreeNode.geneTree(new Integer[]{3,5,1,6,2,0,8,null,null,7,4}),new TreeNode(6),new TreeNode(7));
+        System.out.println(new 二叉树的最近公共祖先().lowestCommonAncestor1(TreeNode.geneTree(3, 5, 1, 6, 2, 0, 8, null, null, 7, 4),
+                new TreeNode(4), new TreeNode(8)));
     }
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         if (root==null||root.val==p.val||root.val==q.val) return root;
@@ -20,5 +21,15 @@ public class 二叉树的最近公共祖先 {
         if (left==null) return right;
         if (right==null) return left;
         return null;
+    }
+
+    public TreeNode lowestCommonAncestor1(TreeNode root, TreeNode p, TreeNode q){
+        if (root==null||root.val==p.val||root.val==q.val) return root;
+        TreeNode left = lowestCommonAncestor1(root.left, p, q);
+        TreeNode right = lowestCommonAncestor1(root.right, p, q);
+        if (left==null&&right==null) return null;
+          if (left==null) return right;
+        else if (right==null) return left;
+        return root;
     }
 }

@@ -8,12 +8,13 @@ package company.二进制;
 public class 二进制求和 {
     public static void main(String[] args) {
         String s = new 二进制求和().addBinary("1010", "1011");
-        System.out.println(s);
-        System.out.println(s.equals("10101"));
+
     }
 //    输入:a = "11", b = "1"
 //输出："100"
     public String addBinary(String a, String b) {
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.append("sdfd");
         char[] achars = new StringBuilder(a).reverse().toString().toCharArray();
         char[] bchars = new StringBuilder(b).reverse().toString().toCharArray();
         StringBuilder sb = new StringBuilder();
@@ -49,4 +50,5 @@ public class 二进制求和 {
         if (carry==1) sb.append('1');
         return sb.reverse().toString();
     }
+
 }

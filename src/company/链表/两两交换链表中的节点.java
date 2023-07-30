@@ -7,12 +7,32 @@ import company.公共类.ListNode;
  * @create 2023-07-10 11:11
  */
 public class 两两交换链表中的节点 {
+    public static void main(String[] args) {
+        System.out.println(new 两两交换链表中的节点().swapPairs1(
+                ListNode.geneList(1,2,3)));
+    }
+
     public ListNode swapPairs(ListNode head) {
-        if (head==null||head.next==null){return head;}
-        ListNode next=head.next;
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode next = head.next;
         ListNode listNode = swapPairs(head.next.next);
-        next.next=head;
-        head.next=listNode;
+        next.next = head;
+        head.next = listNode;
         return next;
     }
+
+    //递归 1,2,3,4,5,6,7,8,9
+//     2,1 4,3 6,5 8,7,9
+    public ListNode swapPairs1(ListNode head) {
+        if (head==null) return null;
+        if (head.next == null) return head;
+        ListNode temp = head.next.next;
+        ListNode next = head.next;
+        head.next.next = head;
+        head.next = swapPairs1(temp);
+        return next;
+    }
+
 }

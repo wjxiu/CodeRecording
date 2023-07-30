@@ -22,6 +22,7 @@ public class ListNode {
 
     @Override
     public String toString() {
+//        return this.val+"";
         ListNode listNode = this;
         StringBuilder sb = new StringBuilder();
         while (listNode!=null){

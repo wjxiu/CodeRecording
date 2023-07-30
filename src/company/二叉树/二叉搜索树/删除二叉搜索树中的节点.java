@@ -7,6 +7,9 @@ import company.公共类.TreeNode;
  * @create 2023-07-16 12:28
  */
 public class 删除二叉搜索树中的节点 {
+    public static void main(String[] args) {
+        System.out.println(new 删除二叉搜索树中的节点().deleteNode1(TreeNode.geneTree(5, 3, 6, 2, 4, null, 7), 3));
+    }
     //deleteNode(root,key)返回的是删除root.val=key后的树的根节点
     public TreeNode deleteNode(TreeNode root, int key) {
         if (root == null) return null;
@@ -40,4 +43,26 @@ public class 删除二叉搜索树中的节点 {
         }
         return root;
     }
+
+    public TreeNode deleteNode1(TreeNode root, int key) {
+        if (root == null) return null;
+        if (root.val == key) {
+            if (root.left == null && root.right == null) return null;
+            else if (root.left == null) return root.right;
+            else if (root.right == null) return root.left;
+            else {
+//            第三种情况,找右子树最左边
+                TreeNode tmp = root.right;
+                while (tmp.left != null) tmp = tmp.left;
+                tmp.left = root.left;
+                TreeNode temp1= root.right;
+                root=null;
+                return temp1;
+            }
+        }
+        if (key < root.val) root.left=deleteNode1(root.left, key);
+        else root.right=deleteNode1(root.right, key);
+        return root;
+    }
+
 }

@@ -10,8 +10,8 @@ import java.util.ArrayList;
  */
 public class 二叉搜索树的最小绝对差 {
     public static void main(String[] args) {
-        TreeNode root = TreeNode.geneTree(new Integer[]{4, 2, 6, 1, 3});
-        new 二叉搜索树的最小绝对差().help1(root);
+        TreeNode root = TreeNode.geneTree(1,null,3,2);
+        System.out.println(new 二叉搜索树的最小绝对差().getMinimumDifference(root));
     }
 
     ArrayList<Integer> list = new ArrayList<Integer>();
@@ -19,12 +19,9 @@ public class 二叉搜索树的最小绝对差 {
 
     //    转成有序数组
     public int getMinimumDifference(TreeNode root) {
-        help(root);
-        res = Integer.MAX_VALUE;
-        for (int i = 1; i < list.size(); i++) {
-            int i1 = list.get(i) - list.get(i - 1);
-            res = Math.min(res, i1);
-        }
+//        这里要复制为最大值
+        pre.val=Integer.MAX_VALUE;
+        help2(root);
         return res;
     }
 
@@ -39,12 +36,20 @@ public class 二叉搜索树的最小绝对差 {
 
     //    递归，和上面思路一致，但是没有数组保存所有值，保存遍历过程的上一个值
     void help1(TreeNode root) {
-        if (root==null) return;
+        if (root == null) return;
         help1(root.left);
-        if (pre.val!=null){
+        if (pre.val != null) {
             res = Math.min(res, root.val - pre.val);
         }
-        pre=root;
+        pre = root;
         help1(root.right);
+    }
+
+    void help2(TreeNode root) {
+        if (root == null) return;
+        help2(root.left);
+        res = Math.min(res, Math.abs(pre.val - root.val));
+        pre = root;
+        help2(root.right);
     }
 }

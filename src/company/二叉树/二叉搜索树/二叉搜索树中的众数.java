@@ -3,19 +3,23 @@ package company.二叉树.二叉搜索树;
 import company.公共类.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author xiu
  * @create 2023-07-15 21:27
  */
 public class 二叉搜索树中的众数 {
-    Integer pre=null;
+    public static void main(String[] args) {
+
+        System.out.println(Arrays.toString(new 二叉搜索树中的众数().findMode(TreeNode.geneTree(1,null,2,2))));
+    }
+    Integer pre=Integer.MIN_VALUE;
     ArrayList<Integer> list=new ArrayList<>();
     int maxcount=0;
     public int[] findMode(TreeNode root) {
-        help(root);
-        int[] ints = list.stream().mapToInt(i -> i).toArray();
-        return ints;
+        help1(root);
+        return list.stream().mapToInt(i -> i).toArray();
     }
     int count=0;
     void help(TreeNode root){
@@ -38,5 +42,22 @@ public class 二叉搜索树中的众数 {
         }
         pre=root.val;
         help(root.right);
+    }
+
+    void help1(TreeNode root){
+        if (root==null) return;
+        help1(root.left);
+        if (root.val==pre)count++;
+        else count=0;
+        if (count==maxcount){
+            list.add(root.val);
+        }
+        if (count>maxcount){
+            list.clear();
+            list.add(root.val);
+            maxcount=count;
+        }
+        pre=root.val;
+        help1(root.right);
     }
 }
