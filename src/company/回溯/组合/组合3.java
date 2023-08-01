@@ -15,7 +15,7 @@ public class 组合3 {
     List<Integer> path=new ArrayList<>();
     int sum=0;
     public List<List<Integer>> combinationSum3(int k, int n) {
-        back(k,n,1);
+        back1(k,n,1);
         return res;
     }
     void back(int k,int n,int index){
@@ -31,6 +31,21 @@ public class 组合3 {
             back(k, n, i+1);
             path.remove(path.size()-1);
             sum-=i;
+        }
+    }
+
+
+    void back1(int k,int n,int index){
+        if (k==0&&sum==n){
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = index; i <=9; i++) {
+            sum+=i;
+            path.add(i);
+            back1(k-1,n,i+1);
+            sum-=i;
+            path.remove(path.size()-1);
         }
     }
 }

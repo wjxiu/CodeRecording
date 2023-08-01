@@ -3,6 +3,7 @@ package company.回溯.分割问题;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author xiu
@@ -13,11 +14,11 @@ public class 分割回文串 {
     LinkedList<String> path = new LinkedList<>();
 
     public static void main(String[] args) {
-        new 分割回文串().partition("aab");
+        System.out.println(new 分割回文串().partition("aab"));
     }
 
     public List<List<String>> partition(String s) {
-        back(s, 0);
+        back1(s, 0);
         return res;
     }
 
@@ -35,6 +36,21 @@ public class 分割回文串 {
             }
             back(s, i + 1);
             path.removeLast();
+        }
+    }
+
+
+    void back1(String s,int index){
+        if (index>=s.length()){
+            res.add(new ArrayList<>(path));
+        }
+        for (int i = index; i < s.length(); i++) {
+            String substring = s.substring(index, i+1);
+            if (isPalindrome(substring)){
+                path.add(substring);
+            }else continue;
+            back1(s,i+1);
+            path.remove(path.size()-1);
         }
     }
 

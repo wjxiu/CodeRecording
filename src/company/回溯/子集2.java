@@ -7,13 +7,17 @@ import java.util.*;
  * @create 2023-07-17 9:33
  */
 public class 子集2 {
+    public static void main(String[] args) {
+        System.out.println(new 子集2().subsetsWithDup(new int[]{1, 2, 2}));
+    }
     List<List<Integer>> res = new ArrayList<>();
     LinkedList<Integer> path = new LinkedList<>();
     boolean[] used;
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums);
         used=new boolean[nums.length];
-        back(nums,0,used);
+//        back(nums,0,used);
+        back1(nums,0,new HashSet<>());
         return res;
     }
     void back(int[] nums,int index,boolean used[]){
@@ -27,6 +31,21 @@ public class 子集2 {
             back(nums, i+1,used);
             path.removeLast();
             used[i]=false;
+        }
+    }
+
+    void back1(int[] nums,int index,Set<Integer> set){
+        res.add(new ArrayList<>(path));
+        for (int i = index; i <nums.length; i++) {
+            if (i>0&&nums[i]==nums[i-1]&&!used[i-1]){
+                continue;
+            }
+            used[i]=true;
+            set.add(nums[i]);
+            path.add(nums[i]);
+            back1(nums, i+1,set);
+            used[i]=false;
+            path.remove(path.size()-1);
         }
     }
 }

@@ -9,14 +9,12 @@ import java.util.List;
  */
 public class 组合 {
     public static void main(String[] args) {
-        String s="abcdef";
-        System.out.println(s.substring(0, 1));
         System.out.println(new 组合().combine(4, 2));
     }
     List<List<Integer>> res=new ArrayList<>();
     List<Integer> path=new ArrayList<>();
     public List<List<Integer>> combine(int n, int k) {
-        back(n,k,0);
+        back1(n,k,0);
         return res;
     }
     void back(int n,int k,int index){
@@ -30,6 +28,19 @@ public class 组合 {
             if (!path.isEmpty()){
                 path.remove(path.size()-1);
             }
+        }
+    }
+    
+    
+    void back1(int n,int k ,int index){
+        if (k==0){
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = index; i <= n; i++) {
+            path.add(i);
+            back1(n,k-1,i+1);
+            path.remove(path.size()-1);
         }
     }
 }
