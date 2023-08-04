@@ -14,6 +14,8 @@ import java.util.Arrays;
 public class 使用最小花费爬楼梯 {
     public static void main(String[] args) {
         new 使用最小花费爬楼梯().minCostClimbingStairs(new int[]{1,100,1,1,1,100,1,1,100,1});
+        System.out.println(new 使用最小花费爬楼梯().minCostClimbingStairs1(new int[]{1, 100, 1, 1, 1, 100, 1, 1, 100, 1}));
+        System.out.println(new 使用最小花费爬楼梯().minCostClimbingStairs1(new int[]{10, 15, 20}));
     }
     public int minCostClimbingStairs(int[] cost) {
         System.out.println();
@@ -25,5 +27,17 @@ public class 使用最小花费爬楼梯 {
             dp[i]=Math.min(dp[i-1]+newcost[i-1],dp[i-2]+newcost[i-2]);
         }
         return dp[dp.length-1];
+    }
+
+    public int minCostClimbingStairs1(int[] cost){
+        int[] dp = new int[cost.length + 1];
+        int[] ints = Arrays.copyOf(cost, cost.length + 1);
+        dp[0]=0;
+        dp[1]=0;
+        for (int i = 2; i < ints.length; i++) {
+            dp[i]=Math.min(dp[i-1]+ints[i-1],dp[i-2]+ints[i-2]);
+        }
+        System.out.println(Arrays.toString(dp));
+        return  dp[cost.length];
     }
 }

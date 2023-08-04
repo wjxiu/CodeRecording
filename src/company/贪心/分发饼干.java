@@ -9,6 +9,9 @@ import java.util.Comparator;
  * @create 2023-07-17 22:11
  */
 public class 分发饼干 {
+    public static void main(String[] args) {
+        System.out.println(new 分发饼干().findContentChildren1(new int[]{1, 2}, new int[]{1, 2,3}));
+    }
     public int findContentChildren(int[] g, int[] s) {
         Arrays.sort(g);
         Arrays.sort(s);
@@ -20,5 +23,18 @@ public class 分发饼干 {
             }
         }
         return gindex;
+    }
+    public int findContentChildren1(int[] g, int[] s){
+        Arrays.sort(g);
+        Arrays.sort(s);
+        int gi=0;
+        int count=0;
+        for(int i=0;i<s.length;i++){
+            if(g[gi]<=s[i]){
+                gi++;
+                count++;
+            }
+        }
+        return count;
     }
 }

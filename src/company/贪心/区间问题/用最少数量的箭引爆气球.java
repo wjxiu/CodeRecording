@@ -1,5 +1,7 @@
 package company.贪心.区间问题;
 
+import company.工具.LeetCodeUtils;
+
 import java.util.Arrays;
 
 /**
@@ -8,12 +10,13 @@ import java.util.Arrays;
  */
 public class 用最少数量的箭引爆气球 {
     public static void main(String[] args) {
-        int[][] ints = {
+//        int[][] ints = {
 //                [[10,16],[2,8],[1,6],[7,12]]
-                {-2147483646, -2147483645},
-                {2147483646, 2147483647},
-        };
-        new 用最少数量的箭引爆气球().findMinArrowShots(ints);
+//                {-2147483646, -2147483645},
+//                {2147483646, 2147483647},
+//        };
+        int[][] ints = LeetCodeUtils.parseToIntArray("[[-2147483646,-2147483645],[2147483646,2147483647]]");
+        System.out.println(new 用最少数量的箭引爆气球().findMinArrowShots1(ints));
     }
 
     public int findMinArrowShots(int[][] points) {
@@ -33,5 +36,24 @@ public class 用最少数量的箭引爆气球 {
         }
         System.out.println(arrow);
         return arrow;
+    }
+
+    public int findMinArrowShots1(int[][] points){
+        Arrays.sort(points,(i,i1)->{
+            if (i[0]==i1[0]) return Long.compare(i[1],i1[1]);
+            return Long.compare(i[0],i1[0]);
+        });
+        int count=1;
+        int right=points[0][1];
+        for (int i = 1; i < points.length; i++) {
+            if (points[i][0]>right){
+                count++;
+                right=points[i][1];
+            }else{
+                right=Math.min(right,points[i][1]);
+            }
+            System.out.println(Arrays.deepToString(points));
+        }
+        return count;
     }
 }

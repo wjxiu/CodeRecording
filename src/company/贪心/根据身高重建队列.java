@@ -1,9 +1,8 @@
 package company.贪心;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.stream.IntStream;
+import company.工具.LeetCodeUtils;
+
+import java.util.*;
 
 /**
  * @author xiu
@@ -11,15 +10,8 @@ import java.util.stream.IntStream;
  */
 public class 根据身高重建队列 {
     public static void main(String[] args) {
-        int[][] ints = {
-                {0, 5},
-                {5, 0},
-                {4, 0},
-                {3, 2},
-                {2, 2},
-                {1, 4},
-        };
-        new 根据身高重建队列().reconstructQueue(ints);
+        int[][] ints = LeetCodeUtils.parseToIntArray("[[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]");
+        System.out.println(Arrays.deepToString(new 根据身高重建队列().reconstructQueue1(ints)));
     }
     public int[][] reconstructQueue(int[][] people) {
         Arrays.sort(people,new Comparator<int[]>(){
@@ -34,5 +26,22 @@ public class 根据身高重建队列 {
             res.add(arr[1],arr);
         }
         return res.toArray(new int[][]{});
+    }
+
+
+    public int[][] reconstructQueue1(int[][] people){
+//        先按照身高大到小，再按照比自己高的人小到大
+        Arrays.sort(people,(p1,p2)->{
+            if (p1[0]==p2[0]){
+                return p1[1]-p2[1];
+            }else{
+                return p2[0]-p1[0];
+            }
+        });
+        ArrayList<int[]> res = new ArrayList<>();
+        for (int[] ints : people) {
+            res.add(ints[1], ints);
+        }
+        return res.toArray(new int[people.length][2]);
     }
 }

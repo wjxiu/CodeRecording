@@ -1,7 +1,11 @@
 package company.贪心.区间问题;
 
+import company.工具.LeetCodeUtils;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Stack;
 
 /**
  * @author xiu
@@ -9,7 +13,8 @@ import java.util.LinkedList;
  */
 public class 合并区间 {
     public static void main(String[] args) {
-        int[][] merge = new 合并区间().merge(new int[][]{{1, 4}, {0, 4}});
+        int[][] ints = LeetCodeUtils.parseToIntArray(" [[1,4],[4,5]]");
+        int[][] merge = new 合并区间().merge1(ints);
         System.out.println(Arrays.deepToString(merge));
     }
     public int[][] merge(int[][] intervals) {
@@ -37,5 +42,23 @@ public class 合并区间 {
             arrres[i]=ints;
         }
         return arrres;
+    }
+
+    public int[][] merge1(int[][] intervals){
+        ArrayList<int[]> list = new ArrayList<>();
+        Arrays.sort(intervals,(i,i1)->{
+            if (i[0]==i1[0]) return Integer.compare(i[1],i1[1]);
+            return Integer.compare(i[0],i1[0]);
+        });
+        list.add(intervals[0]);
+        for (int i = 1; i < intervals.length; i++) {
+            int[] ints = list.get(list.size() - 1);
+            if (intervals[i][0]<=ints[1]){
+                ints[1]=Math.max(intervals[i][1],ints[1]);
+            }else{
+                list.add(intervals[i]);
+            }
+        }
+        return list.toArray(new int[][]{});
     }
 }
