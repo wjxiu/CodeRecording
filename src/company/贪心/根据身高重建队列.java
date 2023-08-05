@@ -1,6 +1,6 @@
 package company.贪心;
 
-import company.工具.LeetCodeUtils;
+import company.公共类.工具.LeetCodeUtils;
 
 import java.util.*;
 

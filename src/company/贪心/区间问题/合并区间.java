@@ -1,11 +1,10 @@
 package company.贪心.区间问题;
 
-import company.工具.LeetCodeUtils;
+import company.公共类.工具.LeetCodeUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.Stack;
 
 /**
  * @author xiu

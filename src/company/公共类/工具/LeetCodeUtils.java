@@ -1,9 +1,7 @@
-package company.工具;
+package company.公共类.工具;
 import com.google.gson.Gson;
 
 import java.util.Arrays;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * @author xiu
