@@ -1,7 +1,6 @@
 package company.动态规划.背包问题.KnapsackProblem;
 
 import java.util.Arrays;
-import java.util.LinkedList;
 
 /**
  * 动态规划不会，这是回溯的解法
@@ -19,6 +18,7 @@ public class 目标和 {
         back(nums, target, 0, 0);
         return count;
     }
+
     public void back(int[] nums, int target, int start, int sum) {
         if (start == nums.length) {
             if (sum == target) count++;

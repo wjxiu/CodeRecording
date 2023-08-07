@@ -12,7 +12,9 @@ import java.util.Arrays;
  */
 public class 完全平方数 {
     public static void main(String[] args) {
-        System.out.println(new 完全平方数().numSquares(13));
+        System.out.println(new 完全平方数().numSquares(7));
+        System.out.println("-----------------------");
+        System.out.println(new 完全平方数().numSquares1(7));
     }
     public int numSquares(int n) {
         int[] dp=new int[n+1];
@@ -28,5 +30,21 @@ public class 完全平方数 {
             System.out.println(Arrays.toString(dp));
         }
         return dp[n];
+    }
+
+
+    public int numSquares1(int n){
+        int[] dp=new int[n+1];
+        int maxValue = Integer.MAX_VALUE;
+        Arrays.fill(dp, maxValue);
+        dp[0]=0;
+        for (int i = 1; i*i < n; i++) {
+            for (int j = 0; j <=n; j++) {
+                if (j>=i*i&&dp[j-i*i]!= maxValue)
+                dp[j]=Math.min(dp[j],dp[j-i*i]+1);
+            }
+            System.out.println(Arrays.toString(dp));
+        }
+        return dp[n]==maxValue?1:dp[n];
     }
 }
