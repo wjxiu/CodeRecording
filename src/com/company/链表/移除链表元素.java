@@ -10,7 +10,6 @@ import java.time.format.DateTimeFormatter;
  * @create 2023-07-09 16:52
  */
 public class 移除链表元素 {
-    volatile  int a= 1;
     public static void main(String[] args) {
         ListNode listNode = ListNode.geneList(1,2,3,3,3,4);
         System.out.println(new 移除链表元素().removeElements1(listNode, 3));
