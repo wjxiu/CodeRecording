@@ -1,6 +1,5 @@
 package company.双指针;
 
-import javafx.scene.layout.BackgroundRepeat;
 
 import java.util.ArrayList;
 import java.util.Arrays;

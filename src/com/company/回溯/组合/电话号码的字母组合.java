@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.BrokenBarrierException;
 import java.util.stream.Collectors;
 
 /**
@@ -28,7 +29,7 @@ public class 电话号码的字母组合 {
         map.put('7', new Character[]{'p', 'q', 'r', 's'});
         map.put('8', new Character[]{'t', 'u', 'v'});
         map.put('9', new Character[]{'w', 'x', 'y', 'z'});
-        back1(digits, 0);
+        back2(digits, 0);
         return res;
     }
 
@@ -65,4 +66,18 @@ public class 电话号码的字母组合 {
         }
     }
 
+//index不是startindex用来开始遍历的索引
+//    而是指向遍历到那个数字，例如234组合，index=1表明了现在在遍历3对应的电话盘数字
+    void back2(String digits,int index){
+        if (path.size()==digits.length()){
+            res.add(new String(String.valueOf(path)));
+            return;
+        }
+        Character[] characters = map.get(digits.charAt(index));
+        for (int i = 0; i < characters.length; i++) {
+            path.add(characters[i]);
+            back2(digits,index+1);
+            path.remove(path.size()-1);
+        }
+    }
 }

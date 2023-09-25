@@ -8,7 +8,7 @@ import java.util.ArrayDeque;
  * @create 2023-09-01 19:48
  */
 public class MinStack {
-    ArrayDeque<Integer> main;
+     ArrayDeque<Integer> main;
     ArrayDeque<Integer> min;
     /** initialize your data structure here. */
     public MinStack() {

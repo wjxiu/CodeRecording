@@ -8,6 +8,7 @@ import company.公共类.TreeNode;
  */
 public class 合法二叉搜索树 {
     public static void main(String[] args) {
+        System.out.println(3 * 0.1 );
         System.out.println(new 合法二叉搜索树().isValidBST1(TreeNode.geneTree(2,8,3)));
     }
 

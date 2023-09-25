@@ -1,6 +1,5 @@
 package com.company.字符串;
 
-import jdk.jfr.internal.jfc.JFC;
 
 import java.util.ArrayList;
 import java.util.Arrays;
