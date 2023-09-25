@@ -33,6 +33,7 @@ public class 无重复字符的最长子串 {
         int res=0,start=0;
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
+//            记录着重复字符的下一位，也就是整个结果子串的开始位置
             start=Math.max(start,last[c]+1);
             res=Math.max(res,i-start+1);
             last[c]=i;
