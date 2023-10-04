@@ -1,4 +1,4 @@
-package company.字符串;
+package com.company.字符串;
 
 
 /**

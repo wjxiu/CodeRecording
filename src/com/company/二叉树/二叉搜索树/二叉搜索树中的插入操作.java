@@ -1,6 +1,6 @@
-package company.二叉树.二叉搜索树;
+package com.company.二叉树.二叉搜索树;
 
-import company.公共类.TreeNode;
+import com.company.公共类.TreeNode;
 
 /**
  * @author xiu

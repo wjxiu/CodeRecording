@@ -1,4 +1,4 @@
-package company.回溯.分割问题;
+package com.company.回溯.分割问题;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

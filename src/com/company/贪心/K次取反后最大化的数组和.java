@@ -1,4 +1,4 @@
-package company.贪心;
+package com.company.贪心;
 
 import java.util.Arrays;
 import java.util.Comparator;

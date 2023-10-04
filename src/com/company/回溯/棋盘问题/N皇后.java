@@ -1,4 +1,4 @@
-package company.回溯.棋盘问题;
+package com.company.回溯.棋盘问题;
 
 
 import java.util.ArrayList;

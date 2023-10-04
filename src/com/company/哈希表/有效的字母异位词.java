@@ -1,4 +1,4 @@
-package company.哈希表;
+package com.company.哈希表;
 
 import java.util.Arrays;
 

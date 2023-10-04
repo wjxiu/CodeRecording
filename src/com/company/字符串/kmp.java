@@ -1,4 +1,8 @@
-package company.字符串;
+package com.company.字符串;
+
+
+
+import com.company.公共类.ListNode;
 
 import java.util.Arrays;
 

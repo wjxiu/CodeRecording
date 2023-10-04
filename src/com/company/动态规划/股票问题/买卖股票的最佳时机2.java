@@ -1,4 +1,4 @@
-package company.动态规划.股票问题;
+package com.company.动态规划.股票问题;
 
 import com.company.公共类.工具类.LeetCodeUtils;
 

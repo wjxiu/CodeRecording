@@ -1,4 +1,4 @@
-package company.二进制;
+package com.company.二进制;
 
 
 /**

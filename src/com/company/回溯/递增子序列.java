@@ -1,4 +1,4 @@
-package company.回溯;
+package com.company.回溯;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package company.动态规划;
+package com.company.动态规划;
 
 /**
  * dp[m,n]	(0,0)-(m,n)	的距离

@@ -1,4 +1,4 @@
-package company.双指针;
+package com.company.双指针;
 
 import java.util.Arrays;
 

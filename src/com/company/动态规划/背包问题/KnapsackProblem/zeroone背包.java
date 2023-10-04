@@ -1,4 +1,4 @@
-package company.动态规划.背包问题.KnapsackProblem;
+package com.company.动态规划.背包问题.KnapsackProblem;
 import java.util.Arrays;
 
 /**

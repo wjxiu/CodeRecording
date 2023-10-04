@@ -1,6 +1,6 @@
-package company.二叉树.层序遍历;
+package com.company.二叉树.层序遍历;
 
-import company.公共类.Node;
+import com.company.公共类.Node;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

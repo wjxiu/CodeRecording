@@ -1,4 +1,4 @@
-package company.单调栈;
+package com.company.单调栈;
 
 import java.util.Arrays;
 import java.util.HashMap;

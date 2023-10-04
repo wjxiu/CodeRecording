@@ -1,4 +1,4 @@
-package company.动态规划.打家劫舍;
+package com.company.动态规划.打家劫舍;
 
 import java.util.Arrays;
 

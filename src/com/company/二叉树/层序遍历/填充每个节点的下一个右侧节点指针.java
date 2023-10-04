@@ -1,4 +1,4 @@
-package company.二叉树.层序遍历;
+package com.company.二叉树.层序遍历;
 
 
 import java.util.ArrayList;

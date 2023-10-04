@@ -1,4 +1,4 @@
-package company.栈;
+package com.company.栈;
 
 import java.util.HashMap;
 import java.util.PriorityQueue;

@@ -1,6 +1,6 @@
-package company.二叉树; // 声明包名
+package com.company.二叉树;
 
-import company.公共类.TreeNode;
+import com.company.公共类.TreeNode;
 
 import java.util.ArrayList;
 import java.util.Arrays;

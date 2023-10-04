@@ -1,4 +1,4 @@
-package company.动态规划.子序列;
+package com.company.动态规划.子序列;
 
 
 import java.util.Arrays;

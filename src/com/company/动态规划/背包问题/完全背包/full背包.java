@@ -1,4 +1,4 @@
-package company.动态规划.背包问题.完全背包;
+package com.company.动态规划.背包问题.完全背包;
 
 /**
  * @author xiu

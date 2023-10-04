@@ -1,4 +1,4 @@
-package company.动态规划;
+package com.company.动态规划;
 
 import java.util.Arrays;
 

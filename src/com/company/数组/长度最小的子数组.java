@@ -1,4 +1,4 @@
-package company.数组;
+package com.company.数组;
 
 import java.util.Arrays;
 import java.util.Collections;

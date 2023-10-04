@@ -1,4 +1,4 @@
-package company.贪心.区间问题;
+package com.company.贪心.区间问题;
 
 import java.util.Arrays;
 

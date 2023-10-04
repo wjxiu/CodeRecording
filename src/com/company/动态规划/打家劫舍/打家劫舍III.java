@@ -1,6 +1,6 @@
-package company.动态规划.打家劫舍;
+package com.company.动态规划.打家劫舍;
 
-import company.公共类.TreeNode;
+import com.company.公共类.TreeNode;
 
 import java.util.Arrays;
 

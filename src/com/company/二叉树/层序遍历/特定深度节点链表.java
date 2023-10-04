@@ -1,7 +1,7 @@
 package com.company.二叉树.层序遍历;
 
-import company.公共类.TreeNode;
-import company.公共类.ListNode;
+import com.company.公共类.TreeNode;
+import com.company.公共类.ListNode;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;

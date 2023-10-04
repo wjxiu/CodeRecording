@@ -1,6 +1,6 @@
-package company.回溯;
+package com.company.回溯;
 
-import company.公共类.TreeNode;
+import com.company.公共类.TreeNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

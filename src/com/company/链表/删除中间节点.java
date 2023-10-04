@@ -1,5 +1,5 @@
 package com.company.链表;
-import company.公共类.ListNode;
+import com.company.公共类.ListNode;
 
 /**
  * 题目意思是是删除指定节点，形参是待删除的节点，不是链表头

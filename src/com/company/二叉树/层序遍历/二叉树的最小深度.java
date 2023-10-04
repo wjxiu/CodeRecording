@@ -1,6 +1,6 @@
-package company.二叉树.层序遍历;
+package com.company.二叉树.层序遍历;
 
-import company.公共类.TreeNode;
+import com.company.公共类.TreeNode;
 
 /**
  * @author xiu

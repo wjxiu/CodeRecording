@@ -1,6 +1,6 @@
-package company.贪心;
+package com.company.贪心;
 
-import company.公共类.TreeNode;
+import com.company.公共类.TreeNode;
 
 /**
  * @author xiu
