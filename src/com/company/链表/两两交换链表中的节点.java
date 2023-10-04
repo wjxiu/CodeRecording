@@ -8,14 +8,12 @@ import company.公共类.ListNode;
  */
 public class 两两交换链表中的节点 {
     public static void main(String[] args) {
-        System.out.println(new 两两交换链表中的节点().swapPairs1(
+        System.out.println(new 两两交换链表中的节点().swapPairs2(
                 ListNode.geneList(1,2,3)));
     }
 
     public ListNode swapPairs(ListNode head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
+        if (head == null || head.next == null) return head;
         ListNode next = head.next;
         ListNode listNode = swapPairs(head.next.next);
         next.next = head;
@@ -26,12 +24,19 @@ public class 两两交换链表中的节点 {
     //递归 1,2,3,4,5,6,7,8,9
 //     2,1 4,3 6,5 8,7,9
     public ListNode swapPairs1(ListNode head) {
-        if (head==null) return null;
-        if (head.next == null) return head;
+        if (head==null||head.next==null) return head;
         ListNode temp = head.next.next;
         ListNode next = head.next;
         head.next.next = head;
         head.next = swapPairs1(temp);
+        return next;
+    }
+    public ListNode swapPairs2(ListNode head) {
+        if (head==null||head.next==null) return head;
+        ListNode next = head.next;
+        ListNode listNode = swapPairs2(next.next);
+        next.next=head;
+        head.next=listNode;
         return next;
     }
 

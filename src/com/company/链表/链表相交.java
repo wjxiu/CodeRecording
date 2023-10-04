@@ -36,4 +36,14 @@ public class 链表相交 {
         }
         return ta;
     }
+
+    public ListNode getIntersectionNode2(ListNode headA, ListNode headB){
+        ListNode ta=headA;
+        ListNode tb=headB;
+        while (ta!=tb){
+            ta=ta!=null?ta.next:headB;
+            tb=tb!=null?tb.next:headA;
+        }
+        return ta;
+    }
 }

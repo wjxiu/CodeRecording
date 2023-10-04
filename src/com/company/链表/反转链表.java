@@ -9,7 +9,7 @@ import company.公共类.ListNode;
 public class 反转链表 {
     public static void main(String[] args) {
         ListNode listNode = ListNode.geneList(1,2,3);
-        System.out.println(new 反转链表().reverseList1(listNode));
+        System.out.println(new 反转链表().reverseList2(listNode));
     }
     public ListNode reverseList(ListNode head) {
 //        双指针
@@ -33,6 +33,19 @@ public class 反转链表 {
             cur.next=pre;
             pre=cur;
             cur=next;
+        }
+        return pre;
+    }
+
+
+    public ListNode reverseList2(ListNode head){
+        ListNode pre=null;
+        ListNode temp=head;
+        while (temp!=null){
+           ListNode next= temp.next;
+           temp.next=pre;
+           pre=temp;
+           temp=next;
         }
         return pre;
     }

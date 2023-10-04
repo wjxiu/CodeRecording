@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class 组合3 {
     public static void main(String[] args) {
-        System.out.println(new 组合3().combinationSum3(3, 7));
+        System.out.println(new 组合3().combinationSum3_1(6, 13));
     }
     List<List<Integer>> res=new ArrayList<>();
     List<Integer> path=new ArrayList<>();
@@ -46,6 +46,23 @@ public class 组合3 {
             back1(k-1,n,i+1);
             sum-=i;
             path.remove(path.size()-1);
+        }
+    }
+    public List<List<Integer>> combinationSum3_1(int k, int n){
+        back3(k,n,1);
+        return res;
+    }
+    void back3(int k,int n,int index){
+        if (sum==n&&path.size()==k){
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = index; i <=9; i++) {
+            path.add(i);
+            sum+=i;
+            back3(k,n,i+1);
+            path.remove(path.size()-1);
+            sum-=i;
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.company.公共类.工具;
+package com.company.公共类.工具类;
 import com.google.gson.Gson;
 
 import java.util.Arrays;

@@ -1,6 +1,6 @@
 package company.双指针;
 
-import com.company.公共类.工具.LeetCodeUtils;
+import com.company.公共类.工具类.LeetCodeUtils;
 
 /**
  * @author xiu

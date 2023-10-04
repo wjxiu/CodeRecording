@@ -11,8 +11,8 @@ import java.util.stream.Collectors;
  */
 public class 有序数组的平方 {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new 有序数组的平方().sortedSquares1(new int[]{-4, -1, 0, 3, 10})));
-        System.out.println(Arrays.toString(new 有序数组的平方().sortedSquares1(new int[]{-7,-3,2,3,11})));
+        System.out.println(Arrays.toString(new 有序数组的平方().sortedSquares2(new int[]{-4, -1, 0, 3, 10})));
+        System.out.println(Arrays.toString(new 有序数组的平方().sortedSquares2(new int[]{-7,-3,2,3,11})));
     }
 //    双指针
     public int[] sortedSquares(int[] nums) {
@@ -49,5 +49,25 @@ public class 有序数组的平方 {
         }
         Collections.reverse(res);
         return res.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    public int[] sortedSquares2(int[] nums){
+        int left=0;
+        int right= nums.length-1;
+        int[] list = Arrays.copyOf(nums, nums.length);
+        int pos=list.length-1;
+        while (left<=right&&pos>=0){
+            if (Math.abs(nums[left])<Math.abs(nums[right])){
+                Double pow = Math.pow(nums[right], 2);
+                list[pos]=pow.intValue();
+                right--;
+            }else{
+                Double pow = Math.pow(nums[left], 2);
+                list[pos]=pow.intValue();
+                left++;
+            }
+            pos--;
+        }
+       return  list;
     }
 }

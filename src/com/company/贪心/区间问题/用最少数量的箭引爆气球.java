@@ -1,6 +1,6 @@
 package company.贪心.区间问题;
 
-import com.company.公共类.工具.LeetCodeUtils;
+import com.company.公共类.工具类.LeetCodeUtils;
 
 import java.util.Arrays;
 
