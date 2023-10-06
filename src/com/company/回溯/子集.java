@@ -16,7 +16,7 @@ public class 子集 {
     List<List<Integer>> res = new ArrayList<>();
     LinkedList<Integer> path = new LinkedList<>();
     public List<List<Integer>> subsets(int[] nums) {
-        back1(nums,0);
+        back2(nums,0);
         return res;
     }
     void back(int[] nums,int index){
@@ -32,6 +32,18 @@ public class 子集 {
         for (int i = index; i < nums.length; i++) {
             path.add(nums[i]);
             back1(nums, i+1);
+            path.remove(path.size()-1);
+        }
+    }
+
+
+
+
+    void back2(int[] nums,int index){
+        res.add(new ArrayList<>(path));
+        for (int i = index; i < nums.length; i++) {
+            path.add(nums[i]);
+            back2(nums,i+1);
             path.remove(path.size()-1);
         }
     }

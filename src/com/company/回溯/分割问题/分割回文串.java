@@ -14,7 +14,7 @@ public class 分割回文串 {
     LinkedList<String> path = new LinkedList<>();
 
     public static void main(String[] args) {
-        System.out.println(new 分割回文串().partition("aab"));
+        System.out.println(new 分割回文串().partition2("aab"));
     }
 
     public List<List<String>> partition(String s) {
@@ -31,7 +31,7 @@ public class 分割回文串 {
             String substring = s.substring(index, i + 1);
             if (!isPalindrome(substring)) {
                 continue;
-            }else{
+            } else {
                 path.add(substring);
             }
             back(s, i + 1);
@@ -40,19 +40,39 @@ public class 分割回文串 {
     }
 
 
-    void back1(String s,int index){
-        if (index>=s.length()){
+    void back1(String s, int index) {
+        if (index >= s.length()) {
+            res.add(new ArrayList<>(path));
+        }
+        for (int i = index; i < s.length(); i++) {
+            String substring = s.substring(index, i + 1);
+            if (isPalindrome(substring)) {
+                path.add(substring);
+            } else continue;
+            back1(s, i + 1);
+            path.remove(path.size() - 1);
+        }
+    }
+
+    public List<List<String>> partition2(String s) {
+        back2(s, 0);
+        return res;
+    }
+
+    void back2(String s, int index) {
+        if (index == s.length()) {
             res.add(new ArrayList<>(path));
         }
         for (int i = index; i < s.length(); i++) {
             String substring = s.substring(index, i+1);
-            if (isPalindrome(substring)){
+            if (isPalindrome(substring)) {
                 path.add(substring);
-            }else continue;
-            back1(s,i+1);
-            path.remove(path.size()-1);
+                back2(s,i+1);
+                path.remove(path.size() - 1);
+            }
         }
     }
+
 
     boolean isPalindrome(String s) {
         char[] chars = s.toCharArray();

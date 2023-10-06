@@ -10,10 +10,13 @@ import java.util.List;
  * @create 2023-07-17 10:43
  */
 public class 递增子序列 {
+    public static void main(String[] args) {
+        System.out.println(new 递增子序列().findSubsequences(new int[]{4, 6, 7, 7}));
+    }
     List<List<Integer>> res = new ArrayList<>();
     LinkedList<Integer> path = new LinkedList<>();
     public List<List<Integer>> findSubsequences(int[] nums) {
-        back1(nums,0);
+        back2(nums,0);
         return res;
     }
     void back(int[] nums,int index){
@@ -44,6 +47,22 @@ public class 递增子序列 {
             set.add(nums[i]);
             path.add(nums[i]);
             back1(nums, i+1);
+            path.remove(path.size()-1);
+        }
+    }
+
+
+    void back2(int[] nums,int index){
+        if (path.size()>1){
+            res.add(new ArrayList<>(path));
+        }
+//        set是在for外面，不是里面，在里边意味着每到一个节点都会新生成一个set
+        HashSet<Integer> set = new HashSet<>();
+        for (int i = index; i < nums.length; i++) {
+            if (!path.isEmpty()&&nums[i]<path.getLast()||set.contains(nums[i])){continue;}
+            path.add(nums[i]);
+            set.add(nums[i]);
+            back2(nums, i+1);
             path.remove(path.size()-1);
         }
     }

@@ -12,7 +12,7 @@ import java.util.List;
 public class 组合总和2 {
     public static void main(String[] args) {
         new 组合总和2().combinationSum2(new int[]{2, 5, 2, 1, 2}, 5);
-        new 组合总和2().combinationSum2(new int[]{10, 1, 2, 7, 6, 1, 5}, 8);
+        new 组合总和2().combinationSum3(new int[]{10, 1, 2, 7, 6, 1, 5}, 8);
     }
 
     List<List<Integer>> res = new ArrayList<>();
@@ -20,9 +20,12 @@ public class 组合总和2 {
     int sum = 0;
     boolean used[];
 
+
+
+
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         Arrays.sort(candidates);
-        used = new boolean[candidates.length];
+        used =new boolean[candidates.length];
         back1(candidates, target, 0);
         System.out.println(res);
         return res;
@@ -47,6 +50,31 @@ public class 组合总和2 {
             used[i] = false;
             path.remove(path.size() - 1);
             sum -= candidate;
+        }
+    }
+
+    public List<List<Integer>> combinationSum3(int[] candidates, int target) {
+        Arrays.sort(candidates);
+        used=new boolean[candidates.length];
+        back3(candidates,target,0);
+        return res;
+    }
+
+    void back3(int[] candidates, int target, int index) {
+        if (used[index]||sum>target) return;
+        if (sum==target){
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = index; i < candidates.length; i++) {
+            if (i>0&&candidates[i-1]==candidates[i]&&!used[i-1]) continue;
+            sum+=candidates[i];
+            path.add(candidates[i]);
+            used[i]=true;
+            back3(candidates,target,i);
+            sum-=candidates[i];
+            used[i]=false;
+            path.remove(path.size()-1);
         }
     }
 }
