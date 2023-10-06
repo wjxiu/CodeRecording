@@ -1,4 +1,4 @@
-package com.company.回溯;
+package com.company.回溯.排序;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class 全排列 {
     public static void main(String[] args) {
-        new 全排列().permute1(new int[]{1,2,3});
+        System.out.println(new 全排列().permute1(new int[]{1, 2, 3}));
     }
     List<List<Integer>> res=new ArrayList();
     LinkedList<Integer> path=new LinkedList<>();
@@ -37,8 +37,7 @@ public class 全排列 {
 
     public List<List<Integer>> permute1(int[] nums){
         used=new boolean[nums.length];
-        back1(nums);
-        System.out.println(res);
+        back2(nums);
         return res;
     }
     void back1(int[] nums){
@@ -51,6 +50,22 @@ public class 全排列 {
             path.add(nums[i]);
             used[i]=true;
             back1(nums);
+            used[i]=false;
+            path.remove(path.size()-1);
+        }
+    }
+
+
+    void back2(int[] nums){
+        if (path.size()== nums.length){
+            res.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (used[i])continue;
+            path.add(nums[i]);
+            used[i]=true;
+            back2(nums);
             used[i]=false;
             path.remove(path.size()-1);
         }

@@ -1,9 +1,8 @@
-package com.company.回溯;
+package com.company.回溯.子集;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @author xiu

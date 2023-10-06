@@ -1,8 +1,6 @@
 package com.company.回溯.分割问题;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author xiu
@@ -10,7 +8,11 @@ import java.util.List;
  */
 public class 复原IP地址 {
     public static void main(String[] args) {
-        System.out.println(Long.parseLong("00"));
+        StringJoiner fruitJoiner = new StringJoiner(",");
+        fruitJoiner.add("Apples");
+        fruitJoiner.add("Oranges");
+        fruitJoiner.add("Bananas");
+        System.out.println(fruitJoiner.toString());
         System.out.println(new 复原IP地址().restoreIpAddresses2("010010"));
     }
     List<String> res = new ArrayList<>();
