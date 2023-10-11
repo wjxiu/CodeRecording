@@ -24,6 +24,7 @@ public class 全排列 {
     void back(int[] nums){
         if (path.size()== nums.length){
             res.add(new ArrayList<>(path));
+            return;
         }
         for (int i = 0; i < nums.length; i++) {
             if (used[i])continue;

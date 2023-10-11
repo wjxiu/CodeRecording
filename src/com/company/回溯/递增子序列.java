@@ -55,6 +55,7 @@ public class 递增子序列 {
     void back2(int[] nums,int index){
         if (path.size()>1){
             res.add(new ArrayList<>(path));
+//            这里不能return
         }
 //        set是在for外面，不是里面，在里边意味着每到一个节点都会新生成一个set
         HashSet<Integer> set = new HashSet<>();

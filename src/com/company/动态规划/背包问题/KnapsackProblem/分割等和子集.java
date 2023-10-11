@@ -9,8 +9,9 @@ import java.util.stream.IntStream;
  */
 public class 分割等和子集 {
     public static void main(String[] args) {
-        System.out.println(new 分割等和子集().test(new int[]{1, 5, 11, 5}));
-        System.out.println(new 分割等和子集().canPartition1(new int[]{1, 2, 3, 5}));
+//        System.out.println(new 分割等和子集().test(new int[]{1, 5, 11, 5}));
+//        System.out.println(new 分割等和子集().canPartition2(new int[]{1, 2, 3, 5}));
+        System.out.println(new 分割等和子集().canPartition2(new int[]{1, 5, 11, 5}));
     }
 
     //    相当于01背包的的重量只有一半，物品的重量和价值都是nums[i]
@@ -62,4 +63,17 @@ public class 分割等和子集 {
         }
         return dp[half]== half;
     }
+
+    public boolean canPartition2(int[] nums){
+
+        int sum=0;
+        for(int num:nums) sum+=num;
+        if(sum%2!=0) return false;
+        int half=sum/2;
+        int[] dp=new int[half+1];
+        for (int num : nums)
+            for (int j = half; j - num >= 0; j--) dp[j] = Math.max(dp[j], dp[j - num] + num);
+        return dp[half]==sum/2;
+    }
+
 }

@@ -1,6 +1,8 @@
 package com.company.动态规划.打家劫舍;
 
 
+import com.company.公共类.TreeNode;
+
 import java.util.Arrays;
 import java.util.UnknownFormatConversionException;
 
@@ -10,8 +12,8 @@ import java.util.UnknownFormatConversionException;
  */
 public class 打家劫舍II {
     public static void main(String[] args) {
-        System.out.println(new 打家劫舍II().rob(new int[]{1,2,1,1}));
-        System.out.println(new 打家劫舍II().rob1(new int[]{0,0}));
+        System.out.println(new 打家劫舍II().rob2(new int[]{1,2,1,1}));
+        System.out.println(new 打家劫舍II().rob2(new int[]{0}));
     }
     public int rob(int[] nums) {
 
@@ -58,4 +60,32 @@ public class 打家劫舍II {
         return dp[nums.length-1];
     }
 
+
+    public int rob2(int[] nums) {
+        if (nums.length==1) return nums[0];
+        int[] house1 = Arrays.copyOfRange(nums, 0, nums.length-1);
+        int[] house2 = Arrays.copyOfRange(nums, 1, nums.length);
+        int help = help(house1);
+        int help1 = help(house2);
+        return Math.max(help,help1);
+    }
+    private int help(int[] house){
+
+        if (house.length==1)return house[0];
+        if (house.length==2)return Math.max(house[0],house[1]);
+        int[] dp=new int[house.length];dp[0]=house[0];dp[1]=Math.max(house[0],house[1]);
+        for (int i = 2; i < dp.length; i++) {
+            dp[i]=Math.max(dp[i-1],dp[i-2]+house[i]);
+        }
+        return dp[house.length-1];
+    }
+    public int[] help(TreeNode root){
+        int[] dp=new int[2];
+        if(root==null) return dp;
+        int[] leftdp=help(root.left);
+        int[] rightdp=help(root.right);
+        dp[0]=Math.max(leftdp[0]+rightdp[1],leftdp[1]+rightdp[0]);
+        dp[1]=root.val+leftdp[0]+rightdp[0];
+        return dp;
+    }
 }

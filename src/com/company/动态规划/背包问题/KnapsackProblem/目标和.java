@@ -27,6 +27,13 @@ public class 目标和 {
             back(nums, target, start + 1, sum - nums[start]);
         }
     }
+//    推导过程
+    // 假设正数字和为L,负数和为R,nums的和为sum，以下为推导过程
+    // L+R=target;R=target-L; L-R=sum;L-(tar-L)=sum;L=(sum+tar)/2
+    // 所以问题就转换为求L的个数
+    // dp[i]定义：表达式结果为i的方法个数
+    //dp[5]=dp[5-1]+dp[5-2]+dp[5-3]+...dp[5-nums[i]](前提是5>=nums[i])
+    // 所以可以推出公式为：dp[j]+=dp[j-nums[i]]
 //    dp
     public int findTargetSumWays1(int[] nums, int target) {
         int sum = Arrays.stream(nums).sum();
