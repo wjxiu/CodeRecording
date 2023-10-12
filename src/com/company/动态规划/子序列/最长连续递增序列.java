@@ -8,8 +8,8 @@ import java.util.Arrays;
  */
 public class 最长连续递增序列 {
     public static void main(String[] args) {
-        System.out.println(new 最长连续递增序列().findLengthOfLCIS(new int[]{1, 3, 5, 4, 7}));
-        System.out.println(new 最长连续递增序列().findLengthOfLCIS1(new int[]{1, 3, 5, 4, 7}));
+        System.out.println(new 最长连续递增序列().findLengthOfLCIS2(new int[]{1, 3, 5, 4, 7}));
+        System.out.println(new 最长连续递增序列().findLengthOfLCIS2(new int[]{1, 3, 5, 4, 7}));
         System.out.println(new 最长连续递增序列().findLengthOfLCIS2(new int[]{1, 3, 5, 4, 7}));
     }
     public int findLengthOfLCIS(int[] nums) {
@@ -46,6 +46,6 @@ public class 最长连续递增序列 {
                 dp[i]=dp[i-1]+1;
             }
         }
-        return  Arrays.stream(dp).max().getAsInt();
+        return Arrays.stream(dp).max().getAsInt();
     }
 }

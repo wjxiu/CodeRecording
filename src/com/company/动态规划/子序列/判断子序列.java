@@ -1,5 +1,6 @@
 package com.company.动态规划.子序列;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 /**
@@ -8,8 +9,10 @@ import java.util.Arrays;
  */
 public class 判断子序列 {
     public static void main(String[] args) {
-        System.out.println(new 判断子序列().isSubsequence1("ace", "abcde"));
-        System.out.println(new 判断子序列().isSubsequence3("ace", "abcde"));
+        BigInteger bigInteger = BigInteger.valueOf(124L);
+        System.out.println(bigInteger.add(BigInteger.valueOf(1235L)));
+        System.out.println(new 判断子序列().isSubsequence3("axc", "ahbgdc"));
+//        System.out.println(new 判断子序列().isSubsequence3("ace", "qerwebhgf"));
     }
 
     //    dp
@@ -62,17 +65,20 @@ public class 判断子序列 {
 
 
     public boolean isSubsequence3(String s, String t){
-        int[][] dp=new int[ s.length()+1][t.length()+1];
-        for (int i = 1; i < s.length()+1; i++) {
-            for (int j = 1; j < t.length()+1; j++) {
+        int m=s.length();
+        int n=t.length();
+        short a=10;
+
+        int[][] dp=new int[m+1][n+1];
+        for (int i = 1; i <=m; i++) {
+            for (int j = 1; j <=n; j++) {
                 if (s.charAt(i-1)==t.charAt(j-1)){
-                    dp[i][j]=Math.max(dp[i][j],dp[i-1][j-1]+1);
+                    dp[i][j]=dp[i-1][j-1]+1;
                 }else{
-                    dp[i][j]=Math.max(dp[i][j],dp[i][j-1]);
+                    dp[i][j]=Math.max(dp[i][j-1],dp[i-1][j]);
                 }
             }
-            System.out.println(Arrays.deepToString(dp));
         }
-        return dp[s.length()][t.length()]==s.length();
+        return dp[m][n]==m;
     }
 }
