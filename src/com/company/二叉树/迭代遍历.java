@@ -21,7 +21,7 @@ public class 迭代遍历 {
         treeNode1.right=treeNode4;
         new 迭代遍历().inorderTraversal(treeNode);
     }
-    //    迭代 前序
+    //    迭代 非递归遍历
     public List<Integer> preorderTraversal(TreeNode root) {
 
         ArrayList<Integer> list = new ArrayList<>();

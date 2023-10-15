@@ -37,4 +37,18 @@ public class 平衡二叉树 {
         if (Math.abs(left-right)>1) return -1;
         return  1+Math.max(left,right);
     }
+
+
+    public boolean isBalanced2(TreeNode root) {
+        if(root==null)return true;
+        int l= count(root.left);
+        int r=count(root.right);
+        if(Math.abs(l-r)>1)return false;
+        else return isBalanced2(root.left)&&isBalanced2(root.right);
+    }
+//    获取节点的高度,根节点为1
+    int count(TreeNode root){
+        if(root==null) return 0;
+        return Math.max(count(root.left),count(root.right))+1;
+    }
 }

@@ -2,6 +2,8 @@ package com.company.二叉树;
 
 import com.company.公共类.TreeNode;
 
+import java.util.LinkedList;
+
 /**
  * @author xiu
  * @create 2023-07-15 10:38
@@ -39,5 +41,20 @@ public class 找树左下角的值 {
         help1(root.left,depth+1);
         help1(root.right,depth+1);
 //        depth-=1;
+    }
+    static int findBottomLeftValue1(TreeNode root) {
+        int res=0;
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()){
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode pop = queue.pop();
+                if (i==0)res= pop.val;
+                if (pop.left!=null)queue.offer(pop.left);
+                if (pop.right!=null)queue.offer(pop.right);
+            }
+        }
+        return res;
     }
 }

@@ -8,8 +8,8 @@ import com.company.公共类.TreeNode;
  */
 public class 左叶子之和 {
     public static void main(String[] args) {
-        TreeNode treeNode = TreeNode.geneTree(3);
-        System.out.println(new 左叶子之和().sumOfLeftLeaves1(treeNode));
+        TreeNode treeNode = TreeNode.geneTree(3,9,20,null,null,15,7);
+        System.out.println(new 左叶子之和().sumOfLeftLeaves2(treeNode));
     }
     public int sumOfLeftLeaves(TreeNode root) {
         return help(root);
@@ -35,4 +35,14 @@ public class 左叶子之和 {
         }
         return mid+left+right;
     }
+
+    int sum=0;
+    public int sumOfLeftLeaves2(TreeNode root) {
+        if(root==null) return 0;
+        // 这里没有return
+        if(root.left != null && root.left.left == null && root.left.right == null) sum+= root.left.val;
+         sumOfLeftLeaves2(root.left);sumOfLeftLeaves2(root.right);
+         return sum;
+    }
+
 }

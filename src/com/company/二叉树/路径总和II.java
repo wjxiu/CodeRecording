@@ -15,10 +15,11 @@ public class 路径总和II {
     }
 
     List<List<Integer>> res = new ArrayList<List<Integer>>();
+    List<Integer> path = new ArrayList<>();
 
     //    给你二叉树的根节点 root 和一个整数目标和 targetSum ，找出所有 从根节点到叶子节点 路径总和等于给定目标和的路径。
     public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
-        help1(root, targetSum, new ArrayList<>());
+        help2(root, targetSum);
         return res;
     }
 
@@ -41,6 +42,19 @@ public class 路径总和II {
         }
         if (root.left != null) help1(root.left, tarSum - root.val, path);
         if (root.right != null) help1(root.right, tarSum - root.val, path);
+        path.remove(path.size() - 1);
+    }
+
+
+    void help2(TreeNode root, int sum) {
+        if (root == null) return;
+        sum -= root.val;
+        path.add(root.val);
+        if (sum == 0 && root.left == null && root.right == null) {
+            res.add(new ArrayList<>(path));
+        }
+        help2(root.left, sum);
+        help2(root.right, sum);
         path.remove(path.size() - 1);
     }
 }

@@ -8,9 +8,6 @@ import java.util.*;
  */
 public class 粉刷房子 {
     public static void main(String[] args) {
-        ArrayList<Integer> integers = new ArrayList<>();
-        List dynamicArray = (List)new dynamicArray().getinstance(integers);
-        System.out.println(dynamicArray.add(1));
 //        System.out.println(dynamicArray);
 //        System.out.println(new 粉刷房子().minCost(LeetCodeUtils.parseToIntArray("[[3,5,3],[6,17,6],[7,13,18],[9,10,18]]")));
     }
