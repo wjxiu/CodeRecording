@@ -8,11 +8,11 @@ import com.company.公共类.TreeNode;
  */
 public class 将有序数组转换为二叉搜索树 {
     public static void main(String[] args) {
+        System.out.println((1<<31)-1);
         System.out.println(new 将有序数组转换为二叉搜索树().sortedArrayToBST(new int[]{-10, -3, 0, 5, 9}));
     }
     public TreeNode sortedArrayToBST(int[] nums) {
-//        return  build(nums,0,nums.length-1);
-        return  build1(0,nums.length-1,nums);
+        return  build(nums,0,nums.length-1);
     }
     //左闭右闭
     TreeNode build(int[] nums,int left,int right) {
@@ -25,14 +25,16 @@ public class 将有序数组转换为二叉搜索树 {
         return root;
     }
 
-    TreeNode build1(int left,int right,int[] nums){
-        if (left>right) return null;
-        if (left==right) return new TreeNode(nums[left]);
-        int mid=(right+left)/2;
-        int midval=nums[(right+left)/2];
-        TreeNode treeNode = new TreeNode(midval);
-        treeNode.left=build1(left,mid-1,nums);
-        treeNode.right=build1(mid+1,right,nums);
+    TreeNode sortedArrayToBST1(int[] nums) {
+        return help1(nums,0, nums.length-1);
+    }
+
+    TreeNode help1(int[] nums,int left,int right){
+        if (left>right)return null;
+        int mid=(left+right)/2;
+        TreeNode treeNode = new TreeNode(nums[mid]);
+        treeNode.left=help1(nums, mid+1, right);
+        treeNode.right=help1(nums, left,mid-1);
         return treeNode;
     }
 }

@@ -1,4 +1,4 @@
-package com.company.二叉树;
+package com.company.二叉树.路径;
 
 import com.company.公共类.TreeNode;
 

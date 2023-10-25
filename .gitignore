@@ -2,4 +2,5 @@
 .idea
 代码随想录.iml
 *.zip
-*.imi
+*.iml
+*.class

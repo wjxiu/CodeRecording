@@ -3,6 +3,7 @@ package com.company.二叉树.二叉搜索树;
 import com.company.公共类.TreeNode;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * @author xiu
@@ -10,8 +11,8 @@ import java.util.ArrayList;
  */
 public class 二叉搜索树的最小绝对差 {
     public static void main(String[] args) {
-        TreeNode root = TreeNode.geneTree(1,null,3,2);
-        System.out.println(new 二叉搜索树的最小绝对差().getMinimumDifference(root));
+        TreeNode root = TreeNode.geneTree(1,2,3,4,5);
+        System.out.println(new 二叉搜索树的最小绝对差().getMinimumDifference2(root));
     }
 
     ArrayList<Integer> list = new ArrayList<Integer>();
@@ -52,4 +53,30 @@ public class 二叉搜索树的最小绝对差 {
         pre = root;
         help2(root.right);
     }
+
+
+    public int getMinimumDifference2(TreeNode root) {
+        if (root==null)return 0;
+        pre=root;
+        help3(root);
+        return res;
+    }
+    void help3(TreeNode root){
+        if (root==null)return;
+        help3(root.left);
+        res=Math.min(Math.abs(pre.val-root.val),res);
+        pre=root;
+        help3(root.right);
+        System.out.println(root);
+    }
+
+
+
+
+
+
+
+
+
+
 }
