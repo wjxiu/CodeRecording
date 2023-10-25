@@ -8,11 +8,9 @@ import java.util.Arrays;
  */
 public class 最长递增子序列 {
     public static void main(String[] args) {
-        int[] nums=new int[]{10,9,2,5,3,7,101,18};
+        int[] nums=new int[]{10,9,2,5,3,4};
         int[] nums1=new int[]{3,2,1};
-        System.out.println(new 最长递增子序列().lengthOfLIS2(nums));
-        System.out.println("===================");
-        System.out.println(new 最长递增子序列().lengthOfLIS2(nums));
+        System.out.println(new 最长递增子序列().lengthOfLIS3(nums));
     }
     public int lengthOfLIS(int[] nums) {
 //        dp[i]表示i之前包括i的以nums[i]结尾的最长递增子序列的长度
@@ -63,5 +61,30 @@ public class 最长递增子序列 {
             System.out.println(Arrays.toString(dp));
         }
         return Arrays.stream(dp).max().getAsInt();
+    }
+    public int lengthOfLIS3(int[] nums) {
+        if (nums.length<=1) return nums.length;
+        int[]dp=new int[nums.length+1];
+        int len=1;
+        dp[1]=nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            if(nums[i]>dp[len]){
+                len++;
+                dp[len]=nums[i];
+            }else{
+                int left=1;int right=len;int pos=0;
+                while(left<=right){
+                    int mid=(left+right)/2;
+                    if(dp[mid]<nums[i]){
+                        pos=mid;
+                        left=mid+1;
+                    }else{
+                        right=mid-1;
+                    }
+                }
+                dp[pos+1]=nums[i];
+            }
+        }
+        return len;
     }
 }

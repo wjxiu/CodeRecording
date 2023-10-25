@@ -19,7 +19,7 @@ import java.util.*;
  */
 public class 全排列2 {
     public static void main(String[] args) {
-        System.out.println(new 全排列2().permuteUnique1(new int[]{1,1,2,3}));
+        System.out.println(new 全排列2().permuteUnique1(new int[]{1,1,2}));
     }
     List<List<Integer>> res = new ArrayList<>();
     LinkedList<Integer> path = new LinkedList<>();

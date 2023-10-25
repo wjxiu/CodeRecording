@@ -54,7 +54,8 @@ public class 三数之和 {
 //                    b去重
                     while (left<right&&nums[left]==nums[left+1]) left++;
 //                    c去重
-                    while (left<right&&nums[right]==nums[right-1]) left++;
+                    while (left<right&&nums[right]==nums[right-1]) right--;
+//                    这个是没有去重也要做的
                     right--;
                     left++;
                 }else if(sum>0){

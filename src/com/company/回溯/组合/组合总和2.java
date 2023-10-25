@@ -60,20 +60,15 @@ public class 组合总和2 {
         return res;
     }
 
-    void back3(int[] candidates, int target, int index) {
-        if (used[index]||sum>target) return;
-        if (sum==target){
-            res.add(new ArrayList<>(path));
-            return;
+    void back3(int[] candidates, int target,int index){
+        if (target<0)return;
+        if (target==0){
+            res.add(new ArrayList<>(path));return;
         }
         for (int i = index; i < candidates.length; i++) {
-            if (i>0&&candidates[i-1]==candidates[i]&&!used[i-1]) continue;
-            sum+=candidates[i];
+            if (i>index&&candidates[i]==candidates[i-1])continue;
             path.add(candidates[i]);
-            used[i]=true;
-            back3(candidates,target,i);
-            sum-=candidates[i];
-            used[i]=false;
+            back3(candidates, target-candidates[i], i+1);
             path.remove(path.size()-1);
         }
     }

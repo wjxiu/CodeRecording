@@ -39,7 +39,6 @@ public class 最长公共子序列 {
                 }else{
                     dp[i][j]=Math.max(dp[i-1][j],dp[i][j-1]);
                 }
-
             }
         }
         return dp[m][n];
