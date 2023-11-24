@@ -12,26 +12,32 @@ import java.util.ArrayDeque;
  */
 public class 回文链表 {
     public static void main(String[] args) {
-        System.out.println(new 回文链表().middleNode(ListNode.geneList()));
-
+        System.out.println(new 回文链表().isPalindrome(ListNode.geneList(1,1,2,2)));
     }
 
     private ListNode frontPointer;
 
     public boolean isPalindrome(ListNode head) {
         frontPointer = head;
-        return next(head);
+        return check(head);
     }
 
     //    利用递归特性找到链表末端，并且和前端比较
-    public boolean next(ListNode head) {
-        if (head == null) return true;
-        boolean next = next(head.next);
-        if (!next) return false;
-        if (frontPointer.val != head.val) return false;
-        frontPointer = frontPointer.next;
+
+    public boolean check(ListNode head){
+        if (head!=null){
+            boolean res = check(head.next);
+            if (!res)return false;
+            if (frontPointer.val!=head.val){
+                return false;
+            }
+            frontPointer=frontPointer.next;
+        }
         return true;
     }
+
+
+
 
     //使用栈
     public boolean isPalindromeStack(ListNode head) {
